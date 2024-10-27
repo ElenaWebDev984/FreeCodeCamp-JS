@@ -1,0 +1,7 @@
+debug.log
+.idea
+.log
+.lock
+.tmp
+Thumbs.db
+**/logs
