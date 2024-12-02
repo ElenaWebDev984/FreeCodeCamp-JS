@@ -17,24 +17,11 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const weapons = [
-    {
-        name: "stick",
-        power: 5
-    },
-    {
-        name: "dagger",
-        power: 30
-    },
-    {
-        name: "claw hammer",
-        power: 50
-    },
-    {
-        name: "sword",
-        power: 100
-    }
+    { name: "stick", power: 5},
+    { name: "dagger", power: 30},
+    { name: "claw hammer", power: 50},
+    { name: "sword", power: 100}
 ];
-
 const locations = [
     {
         name: "town square",
@@ -56,7 +43,6 @@ const locations = [
     }
 ];
 
-
 // initialize buttons
 button1.onclick = goStore;
 button2.onclick = goCave;
@@ -69,7 +55,7 @@ function update(location) {
     button1.onclick = location["button functions"][0];
     button2.onclick = location["button functions"][1];
     button3.onclick = location["button functions"][2];
-    text.innerText = text.innerText = location.text;
+    text.innerText = location.text;
 }
 
 function goTown() {
@@ -114,6 +100,8 @@ function buyWeapon() {
         }
     } else {
         text.innerText = "You already have the most powerful weapon!";
+        button2.innerText = "Sell weapon for 15 gold";
+        button2.onclick = sellWeapon;
     }
 }
 
