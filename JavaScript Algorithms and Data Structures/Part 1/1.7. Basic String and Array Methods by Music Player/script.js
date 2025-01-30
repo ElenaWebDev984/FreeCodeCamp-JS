@@ -86,6 +86,10 @@ let userData = {
     songCurrentTime: 0,
 };
 
+const playSong = (id) => {
+
+};
+
 const renderSongs = (array) => {
   const songsHTML = array.map((song) => {
     return `
@@ -110,8 +114,10 @@ const sortSongs = () => {
     if (a.title < b.title) {
       return -1;
     }
+    return 0;
   });
+  return userData?.songs;
 };
 
-renderSongs(userData?.songs);
+renderSongs(sortSongs());
 
