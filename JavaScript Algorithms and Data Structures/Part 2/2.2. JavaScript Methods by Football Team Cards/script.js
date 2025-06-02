@@ -190,4 +190,15 @@ const setPlayerCards = (arr = players) => {
                 <p>Nickname: ${nickname !== null ? nickname : 'N/A'}</p>
             </div>`)
     })
+        .join('')
 }
+
+playersDropdownList.addEventListener('change', (e) => {
+    playerCards.innerHTML = '';
+
+    switch (e.target.value) {
+        case 'nickname':
+            setPlayerCards(players.filter(player => player.nickname !== null))
+            break;
+    }
+})
