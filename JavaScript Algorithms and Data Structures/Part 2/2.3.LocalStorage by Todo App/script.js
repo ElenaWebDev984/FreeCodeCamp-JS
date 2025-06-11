@@ -46,6 +46,17 @@ const updateTaskContainer = () => {
     );
 };
 
+const deleteTask = (buttonEl) => {
+    const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id);
+
+    buttonEl.parentElement.remove();
+    taskData.splice(dataArrIndex, 1);
+}
+
+const editTask = (buttonEl) => {
+    const dataArrIndex = taskData.findIndex((item) => item.id === buttonEl.parentElement.id);
+}
+
 const reset = () => {
     titleInput.value = "";
     dateInput.value = "";
