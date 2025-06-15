@@ -28,6 +28,7 @@ const addOrUpdateTask = () => {
         taskData[dataArrIndex] = taskObj;
     }
 
+    localStorage.setItem("data", JSON.stringify(taskData));
     updateTaskContainer()
     reset()
 };
@@ -36,7 +37,7 @@ const updateTaskContainer = () => {
     tasksContainer.innerHTML = "";
 
     taskData.forEach(
-        ({ id, title, date, description }) => {
+        ({id, title, date, description}) => {
             tasksContainer.innerHTML += `
         <div class="task" id="${id}">
           <p><strong>Title:</strong> ${title}</p>
@@ -58,6 +59,7 @@ const deleteTask = (buttonEl) => {
 
     buttonEl.parentElement.remove();
     taskData.splice(dataArrIndex, 1);
+    localStorage.setItem("data", JSON.stringify(taskData));
 }
 
 const editTask = (buttonEl) => {
@@ -112,13 +114,3 @@ taskForm.addEventListener("submit", (e) => {
     addOrUpdateTask();
 });
 
-const myTaskArr = [
-    { task: "Walk the Dog", date: "22-04-2022" },
-    { task: "Read some books", date: "02-11-2023" },
-    { task: "Watch football", date: "10-08-2021" },
-];
-
-localStorage.setItem('data', JSON.stringify(myTaskArr));
-
-const getTaskArr = localStorage.getItem('data');
-console.log(getTaskArr);
