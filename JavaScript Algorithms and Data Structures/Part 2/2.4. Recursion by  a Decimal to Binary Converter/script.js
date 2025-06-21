@@ -1,6 +1,6 @@
 const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert-btn");
-const result =document.getElementById("result");
+const result = document.getElementById("result");
 
 const decimalToBinary = (input) => {
     const inputs = [];
@@ -8,8 +8,12 @@ const decimalToBinary = (input) => {
     const remainders = [];
 
     while (input > 0) {
-        const quotient = input / 2;
-        input = 0;
+        const quotient = Math.floor(input / 2);
+        const remainder = input % 2;
+        inputs.push(input);
+        quotients.push(quotient);
+        remainders.push(remainder);
+        input = quotient;
     }
 }
 
