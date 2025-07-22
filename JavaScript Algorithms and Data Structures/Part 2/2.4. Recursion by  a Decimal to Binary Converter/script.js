@@ -29,7 +29,9 @@ const showAnimation = () => {
     result.innerText = "Call Stack Animation";
 
     animationData.forEach((obj) => {
-
+        setTimeout(() => {
+            animationContainer.innerHTML += ` <p class="animation-frame" id="${obj.inputVal}"></p>`;
+        }, obj.addElDelay);
     })
 }
 
